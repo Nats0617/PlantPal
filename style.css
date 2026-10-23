@@ -1,0 +1,1372 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f8f3;
+}
+
+.welcome-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-content {
+    background-color: white;
+    padding: 50px 35px;
+    border-radius: 25px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.plant-icon {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.welcome-content h1 {
+    font-size: 42px;
+    color: #3d7a50;
+    margin-bottom: 12px;
+}
+
+.welcome-content p {
+    color: #555;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.welcome-description {
+    font-size: 14px !important;
+    color: #777 !important;
+    margin-bottom: 25px !important;
+}
+
+.welcome-content button {
+    border: none;
+    background-color: #5b9b68;
+    color: white;
+    padding: 13px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.dashboard {
+    display: none;
+    padding: 30px;
+    text-align: center;
+}
+
+.dashboard h1 {
+    color: #4f8f5b;
+    margin-bottom: 8px;
+}
+
+.dashboard > p {
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.dashboard-stats {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background-color: white;
+    width: 180px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.stat-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.stat-card h3 {
+    color: #555;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    color: #4f8f5b;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.dashboard-menu {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dashboard-menu button {
+    border: none;
+    background-color: white;
+    color: #4f8f5b;
+    padding: 12px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.plant-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.plant-section h2 {
+    color: #4f8f5b;
+    margin-bottom: 15px;
+}
+
+.plant-list {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#emptyPlantMessage {
+    color: #777;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#addPlantButton {
+    border: none;
+    background-color: #5aa469;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.add-plant-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    z-index: 1000;
+}
+
+.add-plant-form h2 {
+    text-align: center;
+    color: #4f8f5b;
+    margin-bottom: 20px;
+}
+
+.add-plant-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    color: #555;
+    font-weight: bold;
+}
+
+.add-plant-form input,
+.add-plant-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.add-plant-form small {
+    display: block;
+    margin-top: 5px;
+    color: #888;
+}
+
+#savePlantButton {
+    display: block;
+    margin: 25px auto 0;
+    border: none;
+    background-color: #5aa469;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.plant-card {
+    background-color: #f8fff9;
+    width: 220px;
+    padding: 20px;
+    margin: 15px auto;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.plant-card-icon {
+    font-size: 45px;
+    margin-bottom: 8px;
+}
+
+.plant-card-photo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 8px;
+}
+
+.plant-card h3 {
+    margin: 5px 0 10px;
+    color: #3f7f4f;
+    font-size: 20px;
+}
+
+.plant-card p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.add-button-top {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    margin: 0 !important;
+}
+
+.detail-plant-button {
+    margin-top: 12px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6fa875;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.detail-plant-button:hover {
+    background-color: #5d9463;
+}
+
+#plantDetailContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.plant-detail-card {
+    pointer-events: auto;
+}
+
+.plant-detail-card {
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 480px;
+    padding: 30px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border: 2px solid #e2f1e4;
+}
+
+.plant-detail-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    border: 5px solid #dcefdc;
+}
+
+.plant-detail-icon {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    background-color: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+}
+
+.plant-detail-card h2 {
+    color: #3f7f4f;
+    font-size: 28px;
+    margin: 5px 0 25px;
+    text-transform: capitalize;
+}
+
+.plant-detail-card p {
+    background-color: #f5faf6;
+    margin: 8px 0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.plant-detail-card p strong {
+    color: #3f7f4f;
+}
+
+.close-detail-button {
+    margin-top: 20px;
+    padding: 11px 28px;
+    border: none;
+    border-radius: 12px;
+    background-color: #5baa68;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.close-detail-button:hover {
+    background-color: #478c54;
+}
+
+.close-add-plant-button {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    border: none;
+    background: none;
+    color: #777;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.close-add-plant-button:hover {
+    color: #4f8f5b;
+}
+
+.plant-card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.plant-card-buttons button {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.plant-card {
+    position: relative;
+}
+
+.edit-plant-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    border: none !important;
+    background: none !important;
+    padding: 4px !important;
+    font-size: 0 !important;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.edit-plant-button::before {
+    content: "✏️";
+    font-size: 18px;
+}
+
+.edit-plant-button:hover {
+    background: none !important;
+    transform: scale(1.1);
+}
+
+.detail-plant-button {
+    background-color: #6fa875;
+    color: white;
+}
+
+.detail-plant-button:hover {
+    background-color: #5d9463;
+}
+
+.water-plant-button {
+    background-color: #dff1e2;
+    color: #4f8f5b;
+}
+
+.water-plant-button:hover {
+    background-color: #cde6d1;
+}
+
+#plantCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#plantCards .plant-card {
+    margin: 0;
+}
+
+#plantCards:has(~ #addPlantButton.add-button-top) {
+    padding-top: 55px;
+}
+
+.plant-card {
+    position: relative;
+}
+
+.delete-plant-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.journal-section {
+    margin-top: 40px;
+    padding: 25px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+.journal-section h2 {
+    margin-bottom: 20px;
+}
+
+#addJournalButton {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.journal-form {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 25px;
+    border-radius: 15px;
+    background-color: #fdf8fc;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.journal-form::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+}
+
+.journal-form label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.journal-form input,
+.journal-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.journal-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.close-journal-form-button {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#saveJournalButton {
+    margin-top: 20px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.journal-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f8fff9;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.journal-photo {
+    width: 150px;
+    height: 150px;
+    flex-shrink: 0;
+}
+
+.journal-photo img,
+.journal-no-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.journal-no-photo {
+    background-color: #e8f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
+.journal-info {
+    flex: 1;
+}
+
+.journal-info h3 {
+    margin: 0 0 12px;
+    color: #3f7f4f;
+    font-size: 20px;
+}
+
+.journal-info p {
+    margin: 8px 0;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.journal-section {
+    padding: 25px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #f5fff7, #fff7fb);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.journal-section h2 {
+    color: #376b4a;
+    margin-bottom: 22px;
+    font-size: 27px;
+}
+
+.journal-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 22px;
+    padding: 20px;
+    border: 1px solid #dcefe0;
+    border-radius: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 5px 16px rgba(72, 120, 84, 0.10);
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+}
+
+.journal-photo {
+    width: 145px;
+    height: 145px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #e8f5e9;
+}
+
+.journal-photo img,
+.journal-no-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.journal-no-photo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    background: linear-gradient(135deg, #e2f5e5, #fff0f6);
+}
+
+.journal-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.journal-info h3 {
+    margin: 0 0 12px;
+    color: #356b49;
+    font-size: 21px;
+    overflow-wrap: anywhere;
+}
+
+.journal-info p {
+    margin: 8px 0;
+    color: #526457;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#addJournalButton,
+#saveJournalButton,
+#saveProgressButton,
+.continue-progress-button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 12px;
+    background-color: #72ad80;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+#addJournalButton:hover,
+#saveJournalButton:hover,
+#saveProgressButton:hover,
+.continue-progress-button:hover {
+    background-color: #518e62;
+    transform: translateY(-1px);
+}
+
+#addJournalButton {
+    margin: 5px 0 22px;
+}
+
+.continue-progress-button {
+    margin-top: 12px;
+    background-color: #78b888;
+}
+
+.continue-progress-button:hover {
+    background-color: #5d9f70;
+}
+
+#journalForm,
+#continueProgressForm {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 32px);
+    max-width: 500px;
+    max-height: 85vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 25px;
+    border: 1px solid #dcefe0;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #f6fff7);
+    box-shadow: 0 12px 35px rgba(43, 81, 53, 0.20);
+    box-sizing: border-box;
+    z-index: 1001;
+}
+
+#journalForm h3,
+#continueProgressForm h3 {
+    margin: 5px 0 22px;
+    color: #376b4a;
+    font-size: 22px;
+}
+
+#journalForm label,
+#continueProgressForm label {
+    display: block;
+    margin: 14px 0 7px;
+    color: #48634e;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#journalForm input,
+#journalForm textarea,
+#journalForm select,
+#continueProgressForm input,
+#continueProgressForm textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #d4e5d7;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #354b39;
+    font: inherit;
+    box-sizing: border-box;
+}
+
+#journalForm textarea,
+#continueProgressForm textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+#journalForm input:focus,
+#journalForm textarea:focus,
+#journalForm select:focus,
+#continueProgressForm input:focus,
+#continueProgressForm textarea:focus {
+    outline: none;
+    border-color: #78b888;
+    box-shadow: 0 0 0 3px rgba(120, 184, 136, 0.16);
+}
+
+#journalForm #saveJournalButton,
+#continueProgressForm #saveProgressButton {
+    width: 100%;
+    margin-top: 20px;
+}
+
+#journalForm .close-journal-form-button,
+#continueProgressForm .close-journal-form-button {
+    display: block;
+    margin-left: auto;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background-color: #e5f4e8;
+    color: #4f8b60;
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.progress-history {
+    margin-top: 18px;
+    padding: 15px;
+    border-radius: 14px;
+    background-color: #f2faf3;
+    border: 1px solid #deefe1;
+}
+
+.progress-history h4 {
+    margin: 0 0 12px;
+    color: #447b52;
+    font-size: 16px;
+}
+
+.progress-item {
+    margin-top: 12px;
+    padding: 13px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 1px solid #e5eee6;
+}
+
+.progress-item img {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    max-height: 220px;
+    margin: 10px 0;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@media (max-width: 600px) {
+    .journal-section {
+        padding: 15px;
+    }
+
+    .journal-card {
+        gap: 12px;
+        padding: 13px;
+    }
+
+    .journal-photo {
+        width: 95px;
+        height: 95px;
+    }
+
+    .journal-info h3 {
+        font-size: 17px;
+    }
+
+    .journal-info p {
+        font-size: 13px;
+    }
+
+    #journalForm,
+    #continueProgressForm {
+        padding: 18px;
+    }
+}
+
+.journal-card {
+    position: relative;
+}
+
+.journal-info {
+    position: relative;
+    padding-top: 28px;
+}
+
+.original-journal-actions {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none;
+}
+
+.original-journal-actions button {
+    border: none;
+    background: none;
+    padding: 2px;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.original-journal-actions button:hover {
+    transform: scale(1.1);
+}
+
+.progress-item {
+    position: relative;
+    padding-top: 38px;
+}
+
+.progress-item .edit-progress-button,
+.progress-item .delete-progress-button {
+    position: absolute;
+    top: 8px;
+    border: none;
+    background: none;
+    padding: 3px;
+    font-size: 15px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.progress-item .edit-progress-button {
+    left: 10px;
+}
+
+.progress-item .delete-progress-button {
+    right: 10px;
+}
+
+.progress-item img {
+    width: 100%;
+    max-width: 180px;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    object-fit: cover;
+    margin: 10px 0;
+    border-radius: 12px;
+}
+
+.progress-item {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    column-gap: 15px;
+    align-items: start;
+    position: relative;
+    padding: 40px 12px 12px;
+}
+
+.progress-item > p {
+    grid-column: 2;
+    margin: 4px 0;
+}
+
+.progress-item > img {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    width: 120px;
+    height: 120px;
+    max-width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 12px;
+}
+
+.progress-item .edit-progress-button {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+}
+
+.progress-item .delete-progress-button {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+
+@media (max-width: 500px) {
+    .progress-item {
+        grid-template-columns: 90px minmax(0, 1fr);
+        column-gap: 10px;
+    }
+
+    .progress-item > img {
+        width: 90px;
+        height: 90px;
+    }
+}
+
+.health-section {
+    background: #f5f9f1;
+    border: 1px solid #dce8d4;
+    border-radius: 20px;
+    padding: 28px;
+    margin-top: 24px;
+    color: #354d35;
+    line-height: 1.7;
+}
+
+.health-section h2 {
+    color: #2f6338;
+    margin-bottom: 10px;
+}
+
+.health-description {
+    color: #667a63;
+    margin-bottom: 24px;
+}
+
+.health-card {
+    background: #ffffff;
+    border: 1px solid #dce8d4;
+    border-radius: 16px;
+    padding: 18px;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(54, 91, 49, 0.07);
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.health-card h3 {
+    color: #376c40;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.health-card p {
+    color: #657564;
+    margin-bottom: 14px;
+}
+
+.health-card button,
+#saveHealthButton {
+    background: #568b55;
+    color: #ffffff;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 18px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+.health-card button:hover,
+#saveHealthButton:hover {
+    background: #3e713f;
+}
+
+#healthConditionContainer {
+    background: #ffffff;
+    border: 1px solid #dce8d4;
+    border-radius: 16px;
+    padding: 22px;
+    margin-top: 20px;
+}
+
+#healthPlantTitle {
+    color: #35663b;
+    margin-top: 0;
+}
+
+#healthCondition {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 20px;
+    border: 1px solid #cbdcc3;
+    border-radius: 10px;
+    background: #fbfdf9;
+    color: #354d35;
+    font-size: 14px;
+}
+
+#healthConditionDetail {
+    background: #f3f8ef;
+    border: 1px solid #d6e5cd;
+    border-radius: 14px;
+    padding: 20px;
+    margin: 18px 0;
+    color: #405640;
+    line-height: 1.8;
+}
+
+#healthDetailTitle {
+    color: #2f6338;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+#healthConditionDetail p strong {
+    color: #356b3c;
+}
+
+#emptyHealthMessage {
+    background: #ffffff;
+    border: 1px dashed #b8cdb0;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 20px;
+    color: #657a61;
+    text-align: center;
+}
+
+#healthConditionDetail {
+    background-color: #e4f2df !important;
+    border: 2px solid #78a96e !important;
+    border-radius: 18px;
+    padding: 20px;
+    margin: 18px 0;
+    color: #294d2c;
+    line-height: 1.7;
+    box-shadow: 0 5px 15px rgba(46, 92, 48, 0.12);
+}
+
+#healthDetailTitle {
+    color: #285c32 !important;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+#healthConditionDetail p strong {
+    color: #326b3b !important;
+}
+
+#healthPlantList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+    align-items: stretch;
+}
+
+#healthPlantList .health-card {
+    width: 100%;
+}
+
+#healthPlantList .health-card button {
+    margin-top: 8px;
+}
+
+@media (max-width: 520px) {
+    #healthPlantList {
+        grid-template-columns: 1fr;
+    }
+}
+
+#healthConditionContainer.health-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(600px, calc(100% - 32px));
+    max-height: 80vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background: #ffffff;
+    border: 1px solid #dce8d4;
+    border-radius: 18px;
+    padding: 28px 22px 22px;
+    margin: 0;
+    z-index: 1000;
+    box-shadow: 0 12px 40px rgba(31, 55, 31, 0.25);
+}
+
+.close-health-popup {
+    position: sticky;
+    top: 0;
+    float: right;
+    margin-top: -16px;
+    margin-right: -10px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: 50%;
+    background: #e7f1e2;
+    color: #35663b;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#healthConditionContainer.health-popup {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: min(600px, calc(100% - 32px)) !important;
+    max-height: 80vh !important;
+    overflow-y: auto !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 28px 22px 22px !important;
+    background: #ffffff !important;
+    border: 1px solid #dce8d4 !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 40px rgba(31, 55, 31, 0.25) !important;
+    z-index: 99999 !important;
+}
+
+.guide-section {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(80, 120, 80, 0.10);
+    box-sizing: border-box;
+}
+
+.guide-section h2 {
+    color: #4f7956;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.guide-description {
+    color: #666666;
+    text-align: center;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+#guideList {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.guide-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 20px;
+    background-color: #f4f9f2;
+    border: 1px solid #e0ecdc;
+    border-radius: 15px;
+    box-sizing: border-box;
+}
+
+.guide-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 55px;
+    height: 55px;
+    background-color: #e3f0df;
+    border-radius: 14px;
+    font-size: 28px;
+}
+
+.guide-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.guide-content h3 {
+    margin: 0 0 8px;
+    color: #4f7956;
+    font-size: 18px;
+}
+
+.guide-content p {
+    margin: 0;
+    color: #666666;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+    .guide-section {
+        width: 95%;
+        padding: 18px;
+    }
+
+    .guide-card {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .guide-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+}
+
+
+/* Pilihan Panduan */
+.guide-selector {
+    margin: 25px 0;
+    text-align: left;
+}
+
+.guide-selector label {
+    display: block;
+    margin-bottom: 10px;
+    color: #456b50;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#guideSelect {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #c8dfc9;
+    border-radius: 12px;
+    background-color: #f7fbf5;
+    color: #365b40;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+#guideSelect:focus {
+    border-color: #80ad85;
+    box-shadow: 0 0 0 3px rgba(128, 173, 133, 0.15);
+}
+
+#selectedGuide {
+    margin-top: 20px;
+}
+
+#selectedGuide .guide-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px;
+    border: 1px solid #dcebd9;
+    border-radius: 18px;
+    background-color: #fbfdf9;
+    box-shadow: 0 4px 12px rgba(67, 104, 70, 0.08);
+}
+
+#selectedGuide .guide-icon {
+    flex-shrink: 0;
+    font-size: 35px;
+}
+
+#selectedGuide .guide-content {
+    flex: 1;
+    min-width: 0;
+    color: #526353;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+#selectedGuide .guide-content h3 {
+    margin-top: 0;
+    margin-bottom: 14px;
+    color: #3f7048;
+    font-size: 19px;
+}
+
+#selectedGuide .guide-description-text {
+    font-size: 14px;
+}
+
+#selectedGuide .guide-description-text strong {
+    color: #426e49;
+}
+
+@media (max-width: 480px) {
+    #selectedGuide .guide-card {
+        gap: 10px;
+        padding: 16px;
+    }
+
+    #selectedGuide .guide-icon {
+        font-size: 28px;
+    }
+
+    #selectedGuide .guide-content h3 {
+        font-size: 16px;
+    }
+}

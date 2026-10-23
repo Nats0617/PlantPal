@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantPal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="welcome-page">
+        <div class="welcome-content">
+            <div class="plant-icon">🌱</div>
+
+            <h1>PlantPal</h1>
+
+            <p>Rawat tanamanmu dengan mudah</p>
+            <p class="welcome-description">
+                Catat perkembangan dan jaga kesehatan tanamanmu.
+            </p>
+
+            <button>Mulai</button>
+        </div>
+    </div>
+
+<section id="dashboard" class="dashboard">
+
+    <h1>Dashboard</h1>
+    <p>Selamat datang di PlantPal 🌱</p>
+
+    <div class="dashboard-stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">🌿</div>
+            <h3>Total Tanaman</h3>
+            <p id="totalPlants">0</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">💧</div>
+            <h3>Perlu Disiram Hari Ini</h3>
+            <p id="plantsToWater">0</p>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🧪</div>
+            <h3>Perlu Dipupuk Hari Ini</h3>
+            <p id="plantsToFertilize">0</p>
+        </div>
+
+    </div>
+
+    <div class="dashboard-menu">
+
+    <button id="plantMenuButton">🌱 Tanaman</button>
+    <button id="journalMenuButton">📖 Jurnal</button>
+    <button id="healthMenuButton">🩺 Status Kesehatan</button>
+    <button id="guideMenuButton">🌿 Panduan</button>
+
+</div>
+
+</div>
+
+<div id="journalSection" class="journal-section" style="display: none;">
+
+    <h2>Jurnal Tanaman 📖</h2>
+
+    <div id="journalForm" class="journal-form">
+
+        <button id="closeJournalFormButton" class="close-journal-form-button">×</button>
+
+        <h3>Tambah Jurnal 📖</h3>
+
+        <label>Nama Tanaman</label>
+        <select id="journalPlantName">
+            <option value="">Pilih tanaman</option>
+        </select>
+
+        <label>Tanggal</label>
+        <input type="date" id="journalDate">
+
+        <label>Foto Perkembangan</label>
+        <input type="file" id="journalPhoto" accept="image/*">
+
+        <label>Catatan Perkembangan</label>
+        <textarea id="journalNote" placeholder="Tulis perkembangan tanamanmu..."></textarea>
+
+        <label>Progress Tanaman</label>
+        <select id="journalProgress">
+            <option value="">Pilih progress</option>
+            <option value="25">25% - Baru mulai</option>
+            <option value="50">50% - Mulai berkembang</option>
+            <option value="75">75% - Berkembang dengan baik</option>
+           <option value="100">100% - Sudah berkembang</option>
+        </select>
+
+
+        <button id="saveJournalButton">Simpan Jurnal</button>
+
+    </div>
+
+        <div id="continueProgressForm" class="journal-form" style="display: none;">
+
+            <button id="closeProgressFormButton" class="close-journal-form-button">×</button>
+
+            <h3>Perkembangan Tanaman 🌿</h3>
+
+            <label>Tanggal Perkembangan</label>
+            <input type="date" id="progressDate">
+
+            <label>Foto Perkembangan Terbaru</label>
+            <input type="file" id="progressPhoto" accept="image/*">
+
+            <label>Catatan Perkembangan</label>
+            <textarea id="progressNote" placeholder="Ceritakan perkembangan tanamanmu..."></textarea>
+
+            <button id="saveProgressButton">Simpan Progres</button>
+
+        </div>
+
+    <button id="addJournalButton">+ Tambah Jurnal</button>
+
+    <div id="journalList"></div>
+
+</div>
+
+
+<div id="healthSection" class="health-section" style="display: none;">
+
+    <h2>Status Kesehatan Tanaman 🩺</h2>
+
+    <p class="health-description">
+        Catat kondisi tanamanmu agar perkembangannya lebih mudah dipantau.
+    </p>
+
+
+    <div id="healthPlantList"></div>
+
+    <div id="healthConditionContainer" style="display: none;">
+
+        <button id="closeHealthPopupButton" type="button" class="close-health-popup">×</button>
+
+        <h3 id="healthPlantTitle">Kondisi Tanaman</h3>
+
+        <label for="healthCondition">Pilih Kondisi Kesehatan</label>
+
+        <select id="healthCondition">
+            <option value="">Pilih kondisi tanaman</option>
+            <option value="sehat">🟢 Sehat</option>
+            <option value="menguning">🟡 Daun Menguning</option>
+            <option value="layu">💧 Layu</option>
+            <option value="hama">🐛 Serangan Hama</option>
+            <option value="bercak">🍃 Daun Rusak / Bercak</option>
+        </select>
+
+        <div id="healthConditionDetail" style="display: none;">
+
+            <h3 id="healthDetailTitle"></h3>
+
+            <p><strong>Penjelasan</strong></p>
+            <p id="healthExplanation"></p>
+
+            <p><strong>Kemungkinan Penyebab</strong></p>
+            <p id="healthCauses"></p>
+
+            <p><strong>Saran Perawatan</strong></p>
+            <p id="healthCareTips"></p>
+
+            <p><strong>⚠️ Yang Perlu Dihindari</strong></p>
+            <p id="healthThingsToAvoid"></p>
+
+            <p><strong>💡 Tips</strong></p>
+            <p id="healthBeginnerTips"></p>
+
+        </div>
+
+        <button id="saveHealthButton">Simpan Status Kesehatan</button>
+
+    </div>
+
+    <p id="emptyHealthMessage">
+        Belum ada data kesehatan tanaman.
+        Tambahkan tanaman terlebih dahulu di menu Tanaman.
+    </p>
+
+
+</div>
+
+<div id="guideSection" class="guide-section" style="display: none;">
+
+    <h2>Panduan Perawatan Tanaman 🌿</h2>
+
+    <p class="guide-description">
+        Pelajari cara merawat tanaman agar tumbuh dengan baik dan tetap sehat.
+    </p>
+
+    <div class="guide-selector">
+    <label for="guideSelect">Pilih Panduan yang Kamu Butuhkan 🌷</label>
+    <select id="guideSelect">
+        <option value="">-- Pilih Panduan --</option>
+    </select>
+</div>
+
+<div id="selectedGuide"></div>
+
+    <div id="guideList">
+
+    </div>
+
+</div>
+
+<div id="plantSection" class="plant-section">
+
+    <h2>Tanaman 🌱</h2>
+
+<div class="plant-list">
+
+    <div id="plantDetailContainer"></div>
+
+    <div id="plantCards"></div>
+        <p id="emptyPlantMessage">
+            Belum ada tanaman.<br>
+            Tambahkan tanaman pertamamu.
+        </p>
+
+        <button id="addPlantButton">+ Tambah Tanaman</button>
+       <div id="addPlantForm" class="add-plant-form">
+    <button id="closeAddPlantButton" class="close-add-plant-button">×</button>
+    <h2 id="plantFormTitle">Tambah Tanaman 🌱</h2>
+
+    <label>Nama Tanaman</label>
+    <input type="text" id="plantName" placeholder="Contoh: Mawar">
+
+    <label>Jenis Tanaman</label>
+    <input type="text" id="plantType" placeholder="Contoh: Bunga">
+
+    <label>Foto Tanaman</label>
+    <input type="file" id="plantPhoto" accept="image/*">
+
+    <label>Jadwal Penyiraman</label>
+    <input type="number" id="wateringSchedule" min="1" placeholder="Contoh: 2">
+    <small>Tanaman disiram setiap berapa hari?</small>
+
+    <label>Menggunakan Pemupukan?</label>
+    <select id="usesFertilizer">
+        <option value="no">Tidak</option>
+        <option value="yes">Ya</option>
+    </select>
+
+    <div id="fertilizerScheduleContainer">
+
+        <label>Jadwal Pemupukan</label>
+        <input type="number" id="fertilizerSchedule" min="1" placeholder="Contoh: 30">
+        <small>Tanaman dipupuk setiap berapa hari?</small>
+
+    </div>
+
+    <button id="savePlantButton">Simpan Tanaman</button> 
+</div>
+
+    </div>
+
+</div>
+</section>
+
+<script src="script.js"></script>
+
+</body>
+</html>
